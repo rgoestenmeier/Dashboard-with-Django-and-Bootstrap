@@ -4,7 +4,7 @@ Building a Dashboard with [Bootstrap](https://getbootstrap.com/) and [Django](ht
 
 ## Get started with Django
 
-### Create Djangp Project
+### Create Django Project
 
 ```bash
 django-admin createproject dashboard
