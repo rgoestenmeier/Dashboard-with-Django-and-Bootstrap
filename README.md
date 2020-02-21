@@ -2,6 +2,8 @@
 
 # Build a Dashboard with Django and Bootstrap
 
+![](docs/00_header.png)
+
 ## First steps
 
 ### Create project
@@ -15,6 +17,8 @@
 ```
 
 ### View current project in browser
+
+![](docs/01_fresh_djangoproject.png)
 
 ### Create first apps
 
@@ -74,9 +78,13 @@ Create template file dashboard/apps/frontend/templates/frontend/index.html
 
 ### View current project in browser
 
+![](docs/02_base_app.png)
+
 ## Current folder Structure
 
 So far, we have the following folder structure
+
+![](docs/03_folder_structure.png)
 
 ## Prepare for administrate your project
 
@@ -161,9 +169,13 @@ File dashboard/apps/frontend/templates/index.html
 
 ## View current status of project
 
+![](docs/10_base_app_with_bootstrap.png)
+
 ## Add Bootstrap example for dashboard
 
 For a first start, we will use a [dashboard](https://getbootstrap.com/docs/4.4/examples/dashboard/) template from bootstrap:
+
+![](docs/21_base_app_with_dashboard.png)
 
 ## Download required files
 
@@ -181,6 +193,8 @@ wget -q ${URL}/Chart.js/2.7.3/Chart.min.js -O ${DST}/chart/2.7.3/js/Chart.min.js
 ```
 
 ### Resulting file structure
+
+![](docs/31_folder_structure_of_libs.png)
 
 ### Get Bootstrap sources with examples
 
@@ -202,6 +216,8 @@ unzip -q install/bootstrap/${BOOTSTRAP_VER} -d install
 ### Examine and study examples
 
 All examples from the getbootstrap.com website are located in `install/bootstrap-4.4.1/site/docs/4.4/examples`
+
+![](docs/31_folder_structure_of_examples.png)
 
 ### Copy template files to django project folders
 
@@ -225,12 +241,23 @@ cp install/bootstrap-4.4.1/site/docs/4.4/examples/dashboard/index.html  dashboar
 
 After this, we should have the following files in folders:
 
+<table>
+<tr>
+<td>
+<img src="docs/32_files_for_dashboard_template.png">
+</td>
+<td>
+
 ```bash
 find dashboard -name "dashboard*" -type f
 dashboard/static/site/css/dashboard.css
 dashboard/static/site/js/dashboard.js
 dashboard/templates/site/dashboard.html
 ```
+
+</td>
+</tr>
+</table>
 
 ### Final Step: modify `site/base.html` template
 
@@ -243,6 +270,9 @@ The base structure for a template file using bootstrap (or any other UI / layout
 -   starting with a header, specifying meta information and links for the used css files
 -   following the main part, containing the information display on the website
 -   end up the the information, where the javascript files are located
+
+The resulting template should look like this
+![](docs/41_base_template_with_dashboard.png)
 
 File `dashboard/templates/site/base.html`
 
