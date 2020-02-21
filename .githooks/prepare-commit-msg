@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# Redirect output to stderr.
+exec 1>&2
+
+#
+#
+#
+COMMIT_MSG_FILE=$1
+COMMIT_SOURCE=$2
+SHA1=$3
+
+_BRANCHPATH=$(git symbolic-ref -q HEAD)
+_BRANCH=${_BRANCHPATH##*/}
+
+GIT_COMMIT_DETAILED_LOGGING=${GIT_COMMIT_DETAILED_LOGGING:-YES}
+
+LOG() {
+    if [[ "$GIT_COMMIT_DETAILED_LOGGING" == "YES" ]]; then
+        echo "LOG: $*"
+    fi
+}
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+    against=HEAD
+else
+    # Initial commit: diff against an empty tree object
+    against=$(git hash-object -t tree /dev/null)
+fi
+
+
+LOG "Working on branch $_BRANCH"
+
+if [ -n "$_BRANCH" ]; then
+    echo "$_BRANCH | $(cat $1)" > $1
+
+    LOG "change commit message to: $(cat $1)"
+fi
+
+# If there are whitespace errors, print the offending file names and fail.
+LOG "Checking whitespace errors against: $against"
+
+# Check all files
+# exec git diff-index --check --cached $against --
+
+# Check only specific file extensions
+git diff-index --check --text HEAD '*.ts' '*.html' '*.json' '*.xml'
