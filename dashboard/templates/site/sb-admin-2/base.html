@@ -17,7 +17,7 @@
 			rel="stylesheet"
 		/>
 
-		<link href="{% static 'vendor/sbadmin2/css/sb-admin-2.min.css' %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'vendor/sb-admin-2/css/sb-admin-2.min.css' %}" rel="stylesheet" type="text/css" />
 	</head>
 
 	<body id="page-top">
@@ -811,14 +811,16 @@
 		<script src="{% static 'vendor/bootstrap/4.4.1/js/bootstrap.bundle.min.js' %}"></script>
 
 		<script src="{% static 'vendor/chart/2.8.0/js/Chart.js' %}"></script>
+
+		<!-- needed for bootstrap dashboard example
 		<script src="{% static 'vendor/feather/4.9.0/js/feather.min.js' %}"></script>
-
 		<script src="{% static 'site/js/dashboard.js' %}"></script>
+		-->
+		<script src="{% static 'vendor/sb-admin-2/js/sb-admin-2.min.js' %}"></script>
+
+		<script src="{% static 'vendor/sb-admin-2/js/demo/chart-area-demo.js' %}"></script>
+		<script src="{% static 'vendor/sb-admin-2/js/demo/chart-pie-demo.js' %}"></script>
+
 		<script src="{% static 'site/js/site.js' %}"></script>
-
-		<script src="{% static 'vendor/sbadmin2/js/sb-admin-2.min.js' %}"></script>
-
-		<script src="{% static 'vendor/sbadmin2/js/demo/chart-area-demo.js' %}"></script>
-		<script src="{% static 'vendor/sbadmin2/js/demo/chart-pie-demo.js' %}"></script>
 	</body>
 </html>
