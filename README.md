@@ -2,7 +2,13 @@
 
 # Build a Dashboard with Django and Bootstrap
 
-![](docs/00_header.png)
+[Part 1: Building a base Django project](https://blog.via-internet.de/en/blog/2020/02/21/build-a-dashboard-with-django-and-bootstrap-part-1)
+
+[Part 2: Prepare for dynamic content](https://blog.via-internet.de/en/blog/2020/02/21/build-a-dashboard-with-django-and-bootstrap-part-2)
+
+[Part 3: Finalize with custom content and side menu](https://blog.via-internet.de/en/blog/2020/02/21/build-a-dashboard-with-django-and-bootstrap-part-3)
+
+![](docs/part-1/00_header_2.png)
 
 ## First steps
 
