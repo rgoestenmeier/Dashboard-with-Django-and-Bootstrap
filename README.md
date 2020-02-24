@@ -36,7 +36,7 @@ mkdir -p dashboard/apps/frontend
 python manage.py createapp Frontend dashboard/apps/frontend
 ```
 
-### Create components and pages
+### Create required components and pages
 
 ````bash
     for APP in buttons cards
