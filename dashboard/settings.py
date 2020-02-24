@@ -65,6 +65,24 @@ INSTALLED_APPS = [
 
     'dashboard.apps.core',
     'dashboard.apps.frontend',
+
+    'dashboard.apps.components.buttons',
+    'dashboard.apps.components.cards',
+
+    'dashboard.apps.utilities.colors',
+    'dashboard.apps.utilities.borders',
+    'dashboard.apps.utilities.animations',
+    'dashboard.apps.utilities.others',
+
+    'dashboard.apps.pages.blank',
+    'dashboard.apps.pages.login',
+    'dashboard.apps.pages.pagenotfound',
+    'dashboard.apps.pages.password',
+    'dashboard.apps.pages.register',
+
+    'dashboard.apps.pages.charts',
+    'dashboard.apps.pages.tables',
+
 ]
 
 MIDDLEWARE = [

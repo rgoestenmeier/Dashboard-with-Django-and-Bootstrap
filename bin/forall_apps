@@ -1,0 +1,26 @@
+#!/usr/local/bin/bash
+
+(
+	cat <<-EOD
+components/buttons
+components/cards
+pages/blank
+pages/charts
+pages/login
+pages/pagenotfound
+pages/password
+pages/register
+pages/tables
+utilities/animations
+utilities/borders
+utilities/colors
+utilities/others
+EOD
+) | while read A
+do
+	N=${A##*/}
+	# echo mkdir -p                                  $A/templates/$N
+	# echo cp frontend/templates/frontend/index.html $A/templates/$N/base.html
+
+	cp components/buttons/views.py $A/views.py
+done

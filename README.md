@@ -36,6 +36,27 @@ mkdir -p dashboard/apps/frontend
 python manage.py createapp Frontend dashboard/apps/frontend
 ```
 
+### Create components and pages
+
+````bash
+    for APP in buttons cards
+    do
+       mkdir  dashboard/apps/components/$APP
+       python3 manage.py createapp $APP dashboard/apps/components/$APP
+    done
+
+    for APP in colors borders animations other
+    do
+        mkdir  -p dashboard/apps/components/$APP
+        python3 manage.py startapp $APP dashboard/apps/utilities/$APP
+    done
+
+    for APP in login register password notfound blank charts tables
+    do
+        mkdir  -p dashboard/apps/pages/$APP
+        python3 manage.py startapp $APP dashboard/apps/pages/$APP
+    done
+
 ## Add new apps to project
 
 Modify `dashboard/settings.py`
@@ -47,7 +68,7 @@ INSTALLED_APPS = [
     'dashboard.apps.core',
     'dashboard.apps.frontend',
 ]
-```
+````
 
 Modify `dashboard/urls.py`
 

@@ -31,6 +31,27 @@ class IndexView(generic.ListView):
         ['1,015', 'sodales', 'ligula', 'in', 'libero'],
     ]
 
+    projects_original = [
+        ['Server Migration', '20%', 'bg-danger', '20'],
+        ['Sales Tracking', '40%', 'bg-warning', '40'],
+        ['Customer Database', '60%', '', '60'],
+        ['Payout Details', '80%', 'bg-info', '80'],
+        ['Account Setup', 'Complete!', 'bg-success', '100']
+    ]
+
+    projects = [
+        ['Server Migration', '10%', 'bg-danger', '20'],
+        ['Sales Tracking', '70%', 'bg-info', '40'],
+        ['Customer Database', '60%', '', '60'],
+        ['Payout Details', 'Complete!', 'bg-success', '100'],
+        ['Account Setup', '40%', 'bg-warning', '40']
+    ]
+
+    earnings_monthly = '$40.000'
+    earnings_annual = '$215.000'
+    task_percent = '75%'
+    pending_requests = 18
+
     def get_queryset(self):
         log(self.module, 'get_queryset', file=__file__)
 
@@ -40,7 +61,12 @@ class IndexView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['data'] = self.data
 
-        log(self.module, 'get_queryset', 'data = %r' %
-            self.data, file=__file__)
+        context['earnings_monthly'] = self.earnings_monthly
+        context['earnings_annual'] = self.earnings_annual
+        context['task_percent'] = self.task_percent
+        context['pending_requests'] = self.pending_requests
+        context['projects'] = self.projects
+
+        # log(self.module, 'get_context_data', 'context=%r' % context, file = __file__)
 
         return context
