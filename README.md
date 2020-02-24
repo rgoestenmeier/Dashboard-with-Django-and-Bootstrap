@@ -2,7 +2,13 @@
 
 # Build a Dashboard with Django and Bootstrap
 
-![](docs/00_header.png)
+[Part 1: Building a base Django project](https://blog.via-internet.de/en/blog/2020/02/21/build-a-dashboard-with-django-and-bootstrap-part-1)
+
+[Part 2: Prepare for dynamic content](https://blog.via-internet.de/en/blog/2020/02/21/build-a-dashboard-with-django-and-bootstrap-part-2)
+
+[Part 3: Finalize with custom content and side menu](https://blog.via-internet.de/en/blog/2020/02/21/build-a-dashboard-with-django-and-bootstrap-part-3)
+
+![](docs/part-1/00_header_2.png)
 
 ## First steps
 
@@ -30,6 +36,27 @@ mkdir -p dashboard/apps/frontend
 python manage.py createapp Frontend dashboard/apps/frontend
 ```
 
+### Create required components and pages
+
+````bash
+    for APP in buttons cards
+    do
+       mkdir  dashboard/apps/components/$APP
+       python3 manage.py createapp $APP dashboard/apps/components/$APP
+    done
+
+    for APP in colors borders animations other
+    do
+        mkdir  -p dashboard/apps/components/$APP
+        python3 manage.py startapp $APP dashboard/apps/utilities/$APP
+    done
+
+    for APP in login register password notfound blank charts tables
+    do
+        mkdir  -p dashboard/apps/pages/$APP
+        python3 manage.py startapp $APP dashboard/apps/pages/$APP
+    done
+
 ## Add new apps to project
 
 Modify `dashboard/settings.py`
@@ -41,7 +68,7 @@ INSTALLED_APPS = [
     'dashboard.apps.core',
     'dashboard.apps.frontend',
 ]
-```
+````
 
 Modify `dashboard/urls.py`
 

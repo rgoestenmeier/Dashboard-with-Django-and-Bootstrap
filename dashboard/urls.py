@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-import dashboard.apps.frontend.views as views
+from django.conf.urls import url
+from django.urls.conf import include
+
+app_name = 'main'
 
 urlpatterns = [
-    path('', 			views.IndexView.as_view(), name='index'),
+    path('', include('dashboard.apps.urls')),
 
     path('admin/', admin.site.urls),
 ]

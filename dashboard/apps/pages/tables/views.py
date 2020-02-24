@@ -1,0 +1,27 @@
+from django.shortcuts import render
+from django.views import generic
+
+from dashboard.apps.core.utils import log
+
+from .models import TableData
+
+
+class IndexView(generic.ListView):
+    """
+    IndexView:
+    """
+    module = 'IndexView'
+    template_name = 'tables/base.html'
+
+    data = TableData()
+
+    def get_queryset(self):
+        log(self.module, 'get_queryset', file=__file__)
+
+        return self.data
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['data'] = self.data
+
+        return context
