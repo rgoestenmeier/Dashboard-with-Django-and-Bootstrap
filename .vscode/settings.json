@@ -15,7 +15,7 @@
 		"**/tests.py": true,
 		"db.sqlite3": true,
 		"debug.log": true,
-		"install": true,
+		"install": false,
 		"**/migrations": false,
 		"**/migrations.*": false
 	},
@@ -23,5 +23,8 @@
 		"**/templates/**/*.html": "django-html",
 		"**/requirements{/**,*}.{txt,in}": "pip-requirements"
 	},
-	"python.pythonPath": ".env/python/bin/python"
+	"python.pythonPath": ".env/python/bin/python",
+	"appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
+	"appService.defaultWebAppToDeploy": "/subscriptions/91e99477-cc77-4aaa-850c-80f390b73aa3/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/via-internet-dashboard",
+	"appService.deploySubpath": "app"
 }

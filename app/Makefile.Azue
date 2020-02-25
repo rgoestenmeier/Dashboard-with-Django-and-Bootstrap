@@ -1,11 +1,11 @@
-AZ_APPNAME := via-internet-playground
+AZ_APPNAME := via-internet-dashboard
 AZ_APPGROUP := rg_rg_Linux_westeurope
 AZ_LOCATION := westeurope
 
-AZ_DBNAME := via-internet-pollsdb
+AZ_DBNAME := via-internet-dashboard
 AZ_DBHOST := $(AZ_DBNAME).postgres.database.azure.com
 
-AZ_DBUSER_NAME := manager@via-internet-pollsdb
+AZ_DBUSER_NAME := manager@via-internet-dashboard
 AZ_DBUSER_PASS := pAssw8rd
 
 AZ_DBADMIN_NAME := viainternet_admin
@@ -16,7 +16,7 @@ AZ_DEPLOY_PWD := pAssw8rd
 
 LOCAL_IP := 37.25.64.220
 
-PREFIX_PKG := django_tutorial_polls
+PREFIX_PKG := dashboard
 
 VERSION_BOOTSTRAP := 4.4.1
 
