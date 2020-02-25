@@ -94,3 +94,4 @@ ENV/
 
 # SQLite3
 db.sqlite3
+app/Makefile.Azure

@@ -27,7 +27,7 @@
 			<!-- Sidebar -->
 			<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 				<!-- Sidebar - Brand -->
-				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'dashboard:index' %}">
+				<a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'app:pages:index' %}">
 					<div class="sidebar-brand-icon rotate-n-15">
 						<i class="fas fa-laugh-wink"></i>
 					</div>
@@ -39,7 +39,7 @@
 
 				<!-- Nav Item - Dashboard -->
 				<li class="nav-item active">
-					<a class="nav-link" href="{% url 'dashboard:index' %}">
+					<a class="nav-link" href="{% url 'app:pages:index' %}">
 						<i class="fas fa-fw fa-tachometer-alt"></i>
 						<span>Dashboard</span></a
 					>
@@ -55,22 +55,14 @@
 
 				<!-- Nav Item - Pages Collapse Menu -->
 				<li class="nav-item">
-					<a
-						class="nav-link collapsed"
-						href="#"
-						data-toggle="collapse"
-						data-target="#collapseTwo"
-						aria-expanded="true"
-						aria-controls="collapseTwo"
-					>
+					<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
 						<i class="fas fa-fw fa-cog"></i>
 						<span>Components</span>
 					</a>
 					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
-							<h6 class="collapse-header">Custom Components:</h6>
-							<a class="collapse-item" href="{% url 'dashboard:buttons' %}">Buttons</a>
-							<a class="collapse-item" href="{% url 'dashboard:cards' %}">Cards</a>
+							<a href="{% url 'app:components:buttons' %}" class="collapse-item" >Buttons</a>
+							<a href="{% url 'app:components:cards' %}" class="collapse-item" >Cards</a>
 						</div>
 					</div>
 				</li>
@@ -90,11 +82,10 @@
 					</a>
 					<div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
-							<h6 class="collapse-header">Custom Utilities:</h6>
-							<a class="collapse-item" href="{% url 'dashboard:colors' %}">Colors</a>
-							<a class="collapse-item" href="{% url 'dashboard:borders' %}">Borders</a>
-							<a class="collapse-item" href="{% url 'dashboard:animations' %}">Animations</a>
-							<a class="collapse-item" href="{% url 'dashboard:others' %}">Other</a>
+							<a class="collapse-item" href="{% url 'app:utilities:colors' %}">Colors</a>
+							<a class="collapse-item" href="{% url 'app:utilities:borders' %}">Borders</a>
+							<a class="collapse-item" href="{% url 'app:utilities:animations' %}">Animations</a>
+							<a class="collapse-item" href="{% url 'app:utilities:others' %}">Other</a>
 						</div>
 					</div>
 				</li>
@@ -123,20 +114,20 @@
 					<div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 						<div class="bg-white py-2 collapse-inner rounded">
 							<h6 class="collapse-header">Login Screens:</h6>
-							<a class="collapse-item" href="{% url 'dashboard:login' %}"">Login</a>
-							<a class="collapse-item" href="{% url 'dashboard:register' %}">Register</a>
-							<a class="collapse-item" href="{% url 'dashboard:password' %}">Forgot Password</a>
+							<a class="collapse-item" href="{% url 'app:pages:login' %}"">Login</a>
+							<a class="collapse-item" href="{% url 'app:pages:register' %}">Register</a>
+							<a class="collapse-item" href="{% url 'app:pages:password' %}">Forgot Password</a>
 							<div class="collapse-divider"></div>
 							<h6 class="collapse-header">Other Pages:</h6>
-							<a class="collapse-item" href="{% url 'dashboard:pagenotfound' %}">404 Page</a>
-							<a class="collapse-item" href="{% url 'dashboard:blank' %}">Blank Page</a>
+							<a class="collapse-item" href="{% url 'app:pages:pagenotfound' %}">404 Page</a>
+							<a class="collapse-item" href="{% url 'app:pages:blank' %}">Blank Page</a>
 						</div>
 					</div>
 				</li>
 
 				<!-- Nav Item - Charts -->
 				<li class="nav-item">
-					<a class="nav-link" href="{% url 'dashboard:charts' %}">
+					<a class="nav-link" href="{% url 'app:pages:charts' %}">
 						<i class="fas fa-fw fa-chart-area"></i>
 						<span>Charts</span></a
 					>
@@ -144,7 +135,7 @@
 
 				<!-- Nav Item - Tables -->
 				<li class="nav-item">
-					<a class="nav-link" href="{% url 'dashboard:tables' %}">
+					<a class="nav-link" href="{% url 'app:pages:tables' %}">
 						<i class="fas fa-fw fa-table"></i>
 						<span>Tables</span></a
 					>

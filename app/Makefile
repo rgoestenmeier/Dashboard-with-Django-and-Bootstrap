@@ -44,6 +44,7 @@ createsuperuser:                                           # Create Superuser
 dbshell:                                                   # Run dbshell
 	python3 manage.py  dbshell
 
+# require pip install django-extensions
 showurls:                                                  # Show URLs
 	python3 manage.py  show_urls
 
@@ -92,23 +93,25 @@ install-popperjs:                                          # Install popperjs
 #
 #
 #
-AZ_APPNAME := via-internet-django-dashboard
-AZ_APPGROUP := rg_rg_Linux_westeurope
+AZ_SUBSCRIPTION_ID := #
+
+AZ_APPNAME := django-dashboard
+AZ_APPGROUP := linux_westeurope
 AZ_LOCATION := westeurope
 
-AZ_DBNAME := via-internet-django-dashboard
+AZ_DBNAME := vdjango-dashboard
 AZ_DBHOST := $(AZ_DBNAME).postgres.database.azure.com
 
-AZ_DBUSER_NAME := manager@via-internet-dashboard
-AZ_DBUSER_PASS := pAssw8rd
+AZ_DBUSER_NAME := manager@dashboard
+AZ_DBUSER_PASS := mnager
 
-AZ_DBADMIN_NAME := viainternet_admin
-AZ_DBADMIN_PASS := pAssw8rd
+AZ_DBADMIN_NAME := admin
+AZ_DBADMIN_PASS := admin
 
-AZ_DEPLOY_USR := viainternet_deploy
-AZ_DEPLOY_PWD := pAssw8rd
+AZ_DEPLOY_USR := deploy
+AZ_DEPLOY_PWD := deploy
 
-LOCAL_IP := 37.25.64.220
+LOCAL_IP := #
 
 PREFIX_PKG := dashboard
 
@@ -137,6 +140,11 @@ az_webapp-config-environment:   # configure webapp environment
 	                                        DBPASS="$(AZ_DBUSER_PASS)"                              \
 	                                        DBNAME="$(AZ_DBNAME)"
 
+
+az_webapp-ssh:
+	az webapp  ssh                                                                                  \
+	                            --name           $(AZ_APPNAME)                                      \
+	                            --resource-group $(AZ_APPGROUP)                                     \
 
 az_init-console-log:            # init access to console logs
 	az webapp log config    --name  $(AZ_APPNAME)                                   \
@@ -168,7 +176,7 @@ az_deploy-create-user:
 	az webapp deployment user set --user-name $(AZ_DEPLOY_USR) --password $(AZ_DEPLOY_PWD)
 
 az_deploy-create-serviceplan:
-	az appservice plan create --name viainternet-serviceplan --resource-group $(AZ_APPGROUP) --sku F1 --is-linux
+	az appservice plan create --name serviceplan --resource-group $(AZ_APPGROUP) --sku F1 --is-linux
 
 
 az_help-list-locations:         # list locations

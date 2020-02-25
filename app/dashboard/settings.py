@@ -66,9 +66,11 @@ INSTALLED_APPS = [
     'dashboard.apps.core',
     'dashboard.apps.frontend',
 
+    'dashboard.apps.components',
     'dashboard.apps.components.buttons',
     'dashboard.apps.components.cards',
 
+    'dashboard.apps.utilities',
     'dashboard.apps.utilities.colors',
     'dashboard.apps.utilities.borders',
     'dashboard.apps.utilities.animations',
@@ -83,6 +85,7 @@ INSTALLED_APPS = [
     'dashboard.apps.pages.charts',
     'dashboard.apps.pages.tables',
 
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
