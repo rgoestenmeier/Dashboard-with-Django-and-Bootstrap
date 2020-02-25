@@ -1,13 +1,11 @@
 #
-.env
+.env/python
+.env/ssh-environment
 
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
 *.py[cod]
 *$py.class
-
-#
-install
 
 # C extensions
 *.so
