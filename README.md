@@ -8,6 +8,11 @@
 
 [Part 3: Finalize with custom content and side menu](https://blog.via-internet.de/en/blog/2020/02/21/build-a-dashboard-with-django-and-bootstrap-part-3)
 
+[Part 1: Building a base Django project](https://blog.via-internet.de/en/build-a-dashboard-with-django-and-bootstrap-part-1/)
+[Part 2: Prepare for dynamic content](https://blog.via-internet.de/en/build-a-dashboard-with-django-and-bootstrap-part-2/)
+[Part 3: Handling navigation and the side menu](https://blog.via-internet.de/en/build-a-dashboard-with-django-and-bootstrap-part-3/)
+[Part 4: Deploy Django App to Azure](https://blog.via-internet.de/en/build-a-dashboard-with-django-and-bootstrap-part-4/)
+
 ![](docs/part-1/00_header_2.png)
 
 ## First steps
