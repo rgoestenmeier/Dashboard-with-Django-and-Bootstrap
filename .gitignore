@@ -1,5 +1,6 @@
 #
-.env
+.env/python
+.env/ssh-environment
 
 #
 .DS_Store
@@ -8,9 +9,6 @@
 **/__pycache__/
 *.py[cod]
 *$py.class
-
-#
-install
 
 # C extensions
 *.so
@@ -99,3 +97,4 @@ ENV/
 
 # SQLite3
 db.sqlite3
+app/Makefile.Azure

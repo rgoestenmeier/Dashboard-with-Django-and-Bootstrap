@@ -46,6 +46,8 @@
 
 {% endblock content %}
 
-{% block additional_scripts %}
-	{% include 'site/base_chart_data.html' %}
+{% block    additional_scripts %}
+	<script src="{% static 'vendor/sb-admin-2/js/demo/chart/area.js' %}"></script>
+	<script src="{% static 'vendor/sb-admin-2/js/demo/chart/bar.js' %}"></script>
+	<script src="{% static 'vendor/sb-admin-2/js/demo/chart/pie.js' %}"></script>
 {% endblock additional_scripts %}

@@ -44,6 +44,7 @@ createsuperuser:                                           # Create Superuser
 dbshell:                                                   # Run dbshell
 	python3 manage.py  dbshell
 
+# require pip install django-extensions
 showurls:                                                  # Show URLs
 	python3 manage.py  show_urls
 
@@ -88,3 +89,108 @@ install-popperjs:                                          # Install popperjs
 	#
 	# wget  -q $(POPPER_LINK)                       -O install/$(POPPER_VERSION).zip
 	# unzip -q install/$(POPPER_VERSION).zip        -d ${POPPER_DEST}/$(POPPER_VERSION)/
+
+#
+#
+#
+AZ_SUBSCRIPTION_ID := #
+
+AZ_APPNAME := django-dashboard
+AZ_APPGROUP := linux_westeurope
+AZ_LOCATION := westeurope
+
+AZ_DBNAME := vdjango-dashboard
+AZ_DBHOST := $(AZ_DBNAME).postgres.database.azure.com
+
+AZ_DBUSER_NAME := manager@dashboard
+AZ_DBUSER_PASS := mnager
+
+AZ_DBADMIN_NAME := admin
+AZ_DBADMIN_PASS := admin
+
+AZ_DEPLOY_USR := deploy
+AZ_DEPLOY_PWD := deploy
+
+LOCAL_IP := #
+
+PREFIX_PKG := dashboard
+
+local_run:                            # run django app
+	. setenv_local && python manage.py runserver
+
+az_run:                         # run django app on azure
+	. setenv_azure && python manage.py runserver
+
+az_webapp-create:               # create azure web app in app services
+	az webapp up --sku F1       --name $(AZ_APPNAME)                                                \
+	                            --resource-group $(AZ_APPGROUP)                                     \
+	                            --location $(AZ_LOCATION)
+
+az_webapp-deploy:               # depoy changes to app services
+	az webapp up --sku F1       --name $(AZ_APPNAME)                                                \
+	                            --location $(AZ_LOCATION)
+
+
+az_webapp-config-environment:   # configure webapp environment
+	az webapp config appsettings set                                                                \
+	                            --name           $(AZ_APPNAME)                                      \
+	                            --resource-group $(AZ_APPGROUP)                                     \
+	                            --settings  DBHOST="$(AZ_DBNAME).postgres.database.azure.com"       \
+	                                        DBUSER="$(AZ_DBUSER_NAME)"                              \
+	                                        DBPASS="$(AZ_DBUSER_PASS)"                              \
+	                                        DBNAME="$(AZ_DBNAME)"
+
+
+az_webapp-ssh:
+	az webapp  ssh                                                                                  \
+	                            --name           $(AZ_APPNAME)                                      \
+	                            --resource-group $(AZ_APPGROUP)                                     \
+
+az_init-console-log:            # init access to console logs
+	az webapp log config    --name  $(AZ_APPNAME)                                   \
+	                        --resource-group $(AZ_APPGROUP)                         \
+	                        --docker-container-logging filesystem
+
+az_show-console-log:            # show console log
+	az webapp log tail      --name  $(AZ_APPNAME) --resource-group $(AZ_APPGROUP)
+
+
+az_postgres-create:             # create azure postgress database
+	az postgres server create   --resource-group $(AZ_APPGROUP)                                 \
+	                            --name           $(AZ_DBNAME)                                   \
+	                            --admin-user     $(AZ_DBADMIN_NAME)                             \
+	                            --admin-password $(AZ_DBADMIN_PASS)                             \
+	                            --auto-grow      Disabled                                       \
+	                            --location       $(AZ_LOCATION)                                 \
+	                            --sku-name       B_Gen5_1
+
+az_postgres-firewall:           # create firewall rules
+	az postgres server firewall-rule create                                                     \
+	                            --resource-group $(AZ_APPGROUP)                                 \
+	                            --server-name    $(AZ_DBNAME)                                   \
+	                            --start-ip-address=$(LOCAL_IP)                                  \
+	                            --end-ip-address=$(LOCAL_IP)                                    \
+	                            --name AllowAllAzureIPs
+
+az_deploy-create-user:
+	az webapp deployment user set --user-name $(AZ_DEPLOY_USR) --password $(AZ_DEPLOY_PWD)
+
+az_deploy-create-serviceplan:
+	az appservice plan create --name serviceplan --resource-group $(AZ_APPGROUP) --sku F1 --is-linux
+
+
+az_help-list-locations:         # list locations
+	az account list-locations 
+
+#
+#
+#
+postgres-start:			        # start postgresql database server
+	pg_ctl -D /usr/local/var/postgres start
+
+postgres-stop:			        # stop postgresql database server
+	pg_ctl -D /usr/local/var/postgres stop
+
+postgres-psql:
+	psql                        -h $(AZ_DBNAME).postgres.database.azure.com         \
+	                            -U $(AZ_DBADMIN_NAME)@$(AZ_DBNAME) postgres

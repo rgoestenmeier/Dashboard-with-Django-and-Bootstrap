@@ -1,0 +1,30 @@
+#!/usr/local/bin/bash
+
+TEMPLATE="{% extends 'site/base.html' %}
+
+{% block    content %}
+{% endblock content %}"
+
+APPS="components/buttons
+components/cards
+pages/blank
+pages/charts
+pages/login
+pages/pagenotfound
+pages/password
+pages/register
+pages/tables
+utilities/animations
+utilities/borders
+utilities/colors
+utilities/others"
+
+R="dashboard/apps"
+
+echo "$TEMPLATE" base.html
+
+echo "$APPS" | while read A
+do
+	N=${A##*/}
+	echo  cp base.html $R/$A/templates/$N
+done

@@ -9,4 +9,4 @@ class IndexView(generic.TemplateView):
     IndexView:
     """
     module = 'IndexView'
-    template_name = 'blank/base.html'
+    template_name = 'charts/base.html'

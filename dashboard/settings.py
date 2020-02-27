@@ -35,11 +35,20 @@ LOGGING = {
         'console': {
             'class': 'logging.StreamHandler',
         },
+        'logfile': {
+            'class': 'logging.handlers.WatchedFileHandler',
+            'filename': BASE_DIR + '/django.log'
+        },
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': './debug.log',
         },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
     },
     'loggers': {
         'main': {
@@ -47,10 +56,18 @@ LOGGING = {
             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
             'propagate': True,
         },
-    },
+        'django': {
+            'handlers': ['logfile'],
+            'level': 'ERROR',
+            'propagate': False
+        }
+    }
 }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'via-internet-django-dashboard.azurewebsites.net'
+]
 
 
 # Application definition
@@ -66,9 +83,11 @@ INSTALLED_APPS = [
     'dashboard.apps.core',
     'dashboard.apps.frontend',
 
+    'dashboard.apps.components',
     'dashboard.apps.components.buttons',
     'dashboard.apps.components.cards',
 
+    'dashboard.apps.utilities',
     'dashboard.apps.utilities.colors',
     'dashboard.apps.utilities.borders',
     'dashboard.apps.utilities.animations',
@@ -83,6 +102,7 @@ INSTALLED_APPS = [
     'dashboard.apps.pages.charts',
     'dashboard.apps.pages.tables',
 
+    'django_extensions'
 ]
 
 MIDDLEWARE = [
@@ -169,3 +189,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, APP_NAME + '/static')
 ]
+
+#
+#
+#
+print('STATICFILES_DIRS', STATICFILES_DIRS)
