@@ -1,0 +1,35 @@
+{
+	"editor.formatOnSave": true,
+	"files.exclude": {
+		".editorconfig": true,
+		".env": false,
+		".envrc": true,
+		".githooks": true,
+		".gitignore": false,
+		".prettierrc": true,
+		"**/__init__.py": true,
+		"**/__pycache__": true,
+		"**/admin.py": true,
+		"**/apps.py": true,
+		"**/tests.py": true,
+		"db.sqlite3": true,
+		"debug.log": true,
+		"install": false,
+		"**/migrations": false,
+		"**/migrations.*": false,
+		"app/.deployment": false,
+		"app/db.sqlite3": true,
+		"**/.classpath": true,
+		"**/.project": true,
+		"**/.settings": true,
+		"**/.factorypath": true
+	},
+	"files.associations": {
+		"**/templates/**/*.html": "django-html",
+		"**/requirements{/**,*}.{txt,in}": "pip-requirements"
+	},
+	"python.pythonPath": ".env/python/bin/python",
+	"appService.zipIgnorePattern": ["node_modules{,/**}", ".vscode{,/**}"],
+	"appService.defaultWebAppToDeploy": "/subscriptions/91e99477-cc77-4aaa-850c-80f390b73aa3/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/via-internet-dashboard",
+	"appService.deploySubpath": "app"
+}

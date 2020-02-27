@@ -50,7 +50,10 @@ LOGGING = {
     },
 }
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'via-internet-django-dashboard.azurewebsites.net'
+]
 
 
 # Application definition
