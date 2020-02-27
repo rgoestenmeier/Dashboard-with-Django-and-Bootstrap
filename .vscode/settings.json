@@ -1,0 +1,29 @@
+{
+	"editor.formatOnSave": true,
+	"files.exclude": {
+		".env": false,
+		".env/python": true,
+		".editorconfig": true,
+		".envrc": true,
+		".githooks": true,
+		".gitignore": false,
+		".prettierrc": true,
+		"**/__init__.py": true,
+		"**/__pycache__": true,
+		"**/admin.py": true,
+		"**/apps.py": true,
+		"**/migrations.*": false,
+		"**/migrations": false,
+		"**/tests.py": true,
+		"app/.deployment": false,
+		"app/db.sqlite3": true,
+		"db.sqlite3": true,
+		"debug.log": true,
+		"install": false
+	},
+	"files.associations": {
+		"**/templates/**/*.html": "django-html",
+		"**/requirements{/**,*}.{txt,in}": "pip-requirements"
+	},
+	"python.pythonPath": ".env/python/bin/python"
+}

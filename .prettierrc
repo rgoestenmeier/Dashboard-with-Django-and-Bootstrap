@@ -1,0 +1,13 @@
+{
+	"useTabs": true,
+	"tabWidth": 4,
+	"printWidth": 140,
+	"singleQuote": true,
+	"semi": true,
+
+	"files.associations": {
+		"**/templates/*.html": "django-html",
+		"**/templates/*": "django-txt",
+		"**/requirements{/**,*}.{txt,in}": "pip-requirements"
+	}
+}

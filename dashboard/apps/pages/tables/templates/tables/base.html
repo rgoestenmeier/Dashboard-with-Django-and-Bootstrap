@@ -1,0 +1,57 @@
+{% extends 'site/base.html' %}
+{% load static %}
+
+{% block    additional_styles %}
+	<link href="{% static 'vendor/datatables/1.10.20/datatables.bs4.min.css' %}" rel="stylesheet" type="text/css" />
+{% endblock additional_styles %}
+
+{% block content %}
+<div class="container-fluid">
+	<h1 class="h3 mb-2 text-gray-800">Tables</h1>
+	<p class="mb-4">
+		DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please
+		visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.
+	</p>
+
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+		</div>
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered table-stripe table-hover" id="dataTable" width="100%" cellspacing="0">
+				{% for row in data %}
+					{% if forloop.first %}
+						<thead>
+							<tr>
+								{% for col in row  %}<th>{{ col }}</th>{% endfor %}
+							</tr>
+						</thead>
+						<tfoot>
+							<tr>
+								{% for col in row  %}<th>{{ col }}</th>{% endfor %}
+							</tr>
+						</tfoot>
+
+						<tbody>
+					{% endif %}
+
+						<tr>
+							{% for col in row  %}<td>{{ col }}</td>{% endfor %}
+						</tr>
+					{% if forloop.last %}
+						</tbody>
+					{% endif %}
+				{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+
+{% block    additional_scripts %}
+	<script src="{% static 'vendor/datatables/1.10.20/datatables.bs4.min.js' %}"></script>
+
+	<script src="{% static 'vendor/sb-admin-2/js/demo/datatables.js' %}"></script>
+{% endblock additional_scripts %}
