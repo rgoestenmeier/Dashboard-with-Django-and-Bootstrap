@@ -25,5 +25,7 @@
 		"**/templates/**/*.html": "django-html",
 		"**/requirements{/**,*}.{txt,in}": "pip-requirements"
 	},
-	"python.pythonPath": ".env/python/bin/python"
+	"python.pythonPath": ".env/python/bin/python",
+	"appService.defaultWebAppToDeploy": "/subscriptions/91e99477-cc77-4aaa-850c-80f390b73aa3/resourceGroups/via-internet-django/providers/Microsoft.Web/sites/via-internet-django-dashboard",
+	"appService.deploySubpath": ""
 }

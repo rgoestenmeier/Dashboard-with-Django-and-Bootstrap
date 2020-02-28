@@ -2,6 +2,9 @@
 .env/python
 .env/ssh-environment
 
+#
+install/
+
 # Byte-compiled / optimized / DLL files
 **/__pycache__/
 *.py[cod]
