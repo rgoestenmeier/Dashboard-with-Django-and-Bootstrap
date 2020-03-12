@@ -43,7 +43,7 @@
 }
 
 :root {
-	--main-color: #ff0000; /* var(--main-color) */
+	--main-color: #0050ff; /* var(--main-color) */
 	--main-color-hover: #f94242; /* #224abe */
 	--main-color-bg: #ff0000;
 }
@@ -11031,14 +11031,9 @@ a:focus {
 }
 
 .bg-gradient-primary {
-	/*
 	background-color: var(--main-color);
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, var(--main-color)), to(#224abe));
 	background-image: linear-gradient(180deg, var(--main-color) 10%, #224abe 100%);
-	*/
-	background-color: #ff0000;
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, var(--main-color)), to(#224abe));
-	background-image: linear-gradient(180deg, #ff0000 10%, #d85656 100%);
 	background-size: cover;
 }
 
